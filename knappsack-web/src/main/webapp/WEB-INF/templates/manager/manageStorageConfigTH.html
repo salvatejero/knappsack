@@ -93,6 +93,31 @@
                                             </div>
                                         </div>
                                     </div>
+					
+									<div id="dropboxStorageFields">
+                                        <div class="control-group">
+                                            <label class="control-label" for="bucketName"><span class="required">*</span> <span th:text="#{desktop.manageStorageConfig.bucketName}">Bucket Name</span></label>
+
+                                            <div class="controls">
+                                                <input id="bucketName" type="text" th:field="*{bucketName}" th:readonly="${#bools.isTrue(isEdit)}"/>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label" for="accessKey"><span class="required">*</span> <span th:text="#{desktop.manageStorageConfig.accessKey}">Access Key</span></label>
+
+                                            <div class="controls">
+                                                <input id="accessKey" type="text" th:field="*{accessKey}"/>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label" for="secretKey"><span class="required">*</span> <span th:text="#{desktop.manageStorageConfig.secretKey}">Secret Key</span></label>
+
+                                            <div class="controls">
+                                                <input id="secretKey" type="text" th:field="*{secretKey}"/>
+                                            </div>
+                                        </div>
+                                    </div>
+
 
                                     <div class="control-group">
                                         <div class="controls" th:inline="text">
@@ -156,16 +181,29 @@
             } else {
                 $("#s3StorageFields").hide();
             }
+            
+            if(storageType == 'DROPBOX'){
+            	$("#dropboxStorageFields").show();
+            }else{
+            	$("#dropboxStorageFields").hide();
+            }
+            
         }
 
         $("#storageType").live("change", function () {
             var storageType = $("#storageType").val();
-            if (storageType == 'AMAZON_S3') {
+            if (storageType == 'AMAZON_S3' ) {
                 $("#baseLocationLabel").text("* URL");
                 $("#s3StorageFields").show();
+                $("#dropboxStorageFields").hide();
             } else if (storageType == 'LOCAL') {
                 $("#baseLocationLabel").text("* Local Path");
                 $("#s3StorageFields").hide();
+            } else if(storageType == 'DROPBOX'){
+            	$("#baseLocationLabel").text("* TOKEN");
+            	$("#dropboxStorageFields").show();
+            	$("#s3StorageFields").hide();
+            	
             }
         });
     });

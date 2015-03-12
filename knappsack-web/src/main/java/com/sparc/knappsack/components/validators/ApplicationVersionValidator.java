@@ -148,7 +148,7 @@ public class ApplicationVersionValidator implements Validator {
             isValid = fileName.toLowerCase().endsWith(".apk");
         } else if (ApplicationType.IOS.equals(parentApplicationType) || parentApplicationType.equals(ApplicationType.IPAD) || parentApplicationType.equals(ApplicationType.IPHONE)) {
             isValid = fileName.toLowerCase().endsWith(".ipa");
-        } else if (ApplicationType.CHROME.equals(parentApplicationType)) {
+        } /*else if (ApplicationType.CHROME.equals(parentApplicationType)) {
             isValid = fileName.toLowerCase().endsWith(".crx");
         } else if (ApplicationType.FIREFOX.equals(parentApplicationType)) {
             isValid = fileName.toLowerCase().endsWith(".xpi");
@@ -159,7 +159,7 @@ public class ApplicationVersionValidator implements Validator {
             isValid = fileName.toLowerCase().endsWith(".xap");
         } else if (ApplicationType.OTHER.equals(parentApplicationType)) {
             isValid = true;
-        }
+        }*/
 
         if(!isValid) {
             errors.rejectValue(APP_FILE_FIELD, "applicationVersionValidator.invalidApplicationType");

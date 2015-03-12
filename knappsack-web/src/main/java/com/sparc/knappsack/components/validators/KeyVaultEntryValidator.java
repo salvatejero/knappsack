@@ -72,6 +72,16 @@ public class KeyVaultEntryValidator implements Validator {
 
         if (file != null) {
             isValid = mimeType.getMimeType().equalsIgnoreCase(file.getContentType());
+            if(!isValid){
+            	MimeType certAux = MimeType.CERTIFICATE_AUX;
+            	isValid = file.getOriginalFilename().endsWith(certAux.getExtension()) 
+            			&& MimeType.CERTIFICATE_AUX.getMimeType().equalsIgnoreCase(file.getContentType());
+            }
+            if(!isValid){
+            	MimeType certAux = MimeType.MOBILE_PROVISIONING_2;
+            	isValid = file.getOriginalFilename().endsWith(certAux.getExtension()) 
+            			&& MimeType.MOBILE_PROVISIONING_2.getMimeType().equalsIgnoreCase(file.getContentType());
+            }
         }
 
         return isValid;

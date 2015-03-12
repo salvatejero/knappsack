@@ -1,10 +1,12 @@
 package com.sparc.knappsack.components.validators;
 
+import com.sparc.knappsack.components.entities.DropBoxStorageConfiguration;
 import com.sparc.knappsack.components.entities.S3StorageConfiguration;
 import com.sparc.knappsack.components.entities.StorageConfiguration;
 import com.sparc.knappsack.components.services.StorageConfigurationService;
 import com.sparc.knappsack.enums.StorageType;
 import com.sparc.knappsack.forms.StorageForm;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -37,6 +39,8 @@ public class StorageConfigurationValidator implements Validator {
         validateStorage(storageForm, errors);
         if (StorageType.AMAZON_S3.equals(storageForm.getStorageType())) {
             validateS3Storage(storageForm, errors);
+        }else if (StorageType.DROPBOX.equals(storageForm.getStorageType())) {
+        	validateDropBoxStorage(storageForm, errors);
         }
     }
 
@@ -85,6 +89,28 @@ public class StorageConfigurationValidator implements Validator {
             StorageConfiguration storageConfiguration = storageConfigurationService.get(storageForm.getId());
             if(storageConfiguration instanceof S3StorageConfiguration && !((S3StorageConfiguration)storageConfiguration).getBucketName().equals(storageForm.getBucketName())) {
                 storageForm.setBucketName(((S3StorageConfiguration) storageConfiguration).getBucketName());
+                errors.rejectValue(BUCKET_NAME_FIELD, "storageConfigurationValidator.bucketName.edited");
+            }
+        }
+
+        if (!StringUtils.hasText(storageForm.getBucketName())) {
+            errors.rejectValue(BUCKET_NAME_FIELD, "storageConfigurationValidator.bucketName.empty");
+        }
+
+        if (!StringUtils.hasText(storageForm.getAccessKey())) {
+            errors.rejectValue(ACCESS_KEY_FIELD, "storageConfigurationValidator.accessKey.empty");
+        }
+
+        if (!StringUtils.hasText(storageForm.getSecretKey())) {
+            errors.rejectValue(SECRET_KEY_FIELD, "storageConfigurationValidator.secretKey.empty");
+        }
+    }
+    
+    private void validateDropBoxStorage(StorageForm storageForm, Errors errors) {
+        if(storageForm.isEditing()) {
+            StorageConfiguration storageConfiguration = storageConfigurationService.get(storageForm.getId());
+            if(storageConfiguration instanceof DropBoxStorageConfiguration && !((DropBoxStorageConfiguration)storageConfiguration).getBucketName().equals(storageForm.getBucketName())) {
+                storageForm.setBucketName(((DropBoxStorageConfiguration) storageConfiguration).getBucketName());
                 errors.rejectValue(BUCKET_NAME_FIELD, "storageConfigurationValidator.bucketName.edited");
             }
         }

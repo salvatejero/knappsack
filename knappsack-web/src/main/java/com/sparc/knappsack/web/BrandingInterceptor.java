@@ -42,7 +42,7 @@ public class BrandingInterceptor extends FilteredRequestHandlerInterceptorAdapte
                 Organization organization = user.getActiveOrganization();
 
                 if (organization != null) {
-                    modelAndView.getModel().put("orgName", "Knappsack");
+                    modelAndView.getModel().put("orgName", organization.getName());
                     if (organizationService.isCustomBrandingEnabled(organization)) {
                         modelAndView.getModel().put("orgName", organization.getName());
                         CustomBranding customBranding = organization.getCustomBranding();

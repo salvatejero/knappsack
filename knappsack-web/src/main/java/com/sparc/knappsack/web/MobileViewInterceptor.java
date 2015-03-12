@@ -1,15 +1,22 @@
 package com.sparc.knappsack.web;
 
-import com.sparc.knappsack.util.UserAgentInfo;
-import org.springframework.web.servlet.HandlerInterceptor;
-import org.springframework.web.servlet.ModelAndView;
+import java.io.File;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.sparc.knappsack.util.UserAgentInfo;
 
 public class MobileViewInterceptor implements HandlerInterceptor {
 
+	private static final Logger log = LoggerFactory
+			.getLogger(MobileViewInterceptor.class);
+	
     private String mobileDirectoryPrefix;
     private boolean mobileEnabled;
     private String viewsRootDirectory;
@@ -68,8 +75,14 @@ public class MobileViewInterceptor implements HandlerInterceptor {
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {}
 
     private boolean checkIfResourceExists(String resourceFullName) {
-        File reqFile = new File(resourceFullName);
-        return reqFile.exists();
+        log.error(resourceFullName);
+        try{
+        	File reqFile = new File(resourceFullName);
+        	return reqFile.exists();
+        }catch(Exception e){
+        	
+        }
+        return true;
     }
 
     private boolean checkUserAgentIsMobile(HttpServletRequest request) {

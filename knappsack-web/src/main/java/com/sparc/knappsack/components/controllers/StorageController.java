@@ -1,11 +1,13 @@
 package com.sparc.knappsack.components.controllers;
 
+import com.sparc.knappsack.components.entities.DropBoxStorageConfiguration;
 import com.sparc.knappsack.components.entities.S3StorageConfiguration;
 import com.sparc.knappsack.components.entities.StorageConfiguration;
 import com.sparc.knappsack.components.services.StorageConfigurationService;
 import com.sparc.knappsack.components.validators.StorageConfigurationValidator;
 import com.sparc.knappsack.enums.StorageType;
 import com.sparc.knappsack.forms.StorageForm;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -113,7 +115,12 @@ public class StorageController extends AbstractController {
                     storageForm.setAccessKey(((S3StorageConfiguration) storageConfiguration).getAccessKey());
                     storageForm.setSecretKey(((S3StorageConfiguration) storageConfiguration).getSecretKey());
                     storageForm.setBucketName(((S3StorageConfiguration) storageConfiguration).getBucketName());
+                }if(storageConfiguration instanceof DropBoxStorageConfiguration) {
+                    storageForm.setAccessKey(((DropBoxStorageConfiguration) storageConfiguration).getAccessKey());
+                    storageForm.setSecretKey(((DropBoxStorageConfiguration) storageConfiguration).getSecretKey());
+                    storageForm.setBucketName(((DropBoxStorageConfiguration) storageConfiguration).getBucketName());
                 }
+
 
                 model.addAttribute("storageForm", storageForm);
             } else {
