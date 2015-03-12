@@ -14,7 +14,7 @@ public enum ApplicationType {
     WINDOWSPHONE7(7, "applicationType.windowsphone7", true, MimeType.WINPHONE, false, 5, 7),
     BLACKBERRY(8, "applicationType.blackberry", true, MimeType.BLACKBERRY_COD, false, 6, 8),
     OTHER(9, "applicationType.other", false, null, false, 7, 9);
-
+;
     private final long id;
     private final String messageKey;
     private final boolean isMobilePlatform;

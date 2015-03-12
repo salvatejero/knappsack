@@ -4,8 +4,9 @@ public enum StorageType {
     //Stored on the local server
     LOCAL("storageType.local", false),
     //Amazon's S3 storage service
-    AMAZON_S3("storageType.amazonS3", true);
+    AMAZON_S3("storageType.amazonS3", true),
 
+    DROPBOX("storageType.dropbox", true);
     //The message properties key for this StorageType
     private final String messageKey;
     //Specifies if the StorageType is not the server running Knappsack
@@ -16,7 +17,6 @@ public enum StorageType {
         this.remote = remote;
     }
 
-    @SuppressWarnings("unused")
     public String getMessageKey() {
         return messageKey;
     }

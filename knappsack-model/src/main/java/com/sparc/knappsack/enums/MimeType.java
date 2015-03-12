@@ -15,7 +15,9 @@ public enum MimeType {
     JPEG("jpeg", "image/jpeg", ContentType.IMAGE),
     CERTIFICATE("cer", "application/x-x509-ca-cert", ContentType.APPLICATION),
     KEY("p12", "application/x-pkcs12", ContentType.APPLICATION),
-    MOBILE_PROVISIONING_PROFILE("mobileprovision", "application/octet-stream", ContentType.APPLICATION);
+    MOBILE_PROVISIONING_PROFILE("mobileprovision", "application/octet-stream", ContentType.APPLICATION),
+    CERTIFICATE_AUX("cer", "application/octet-stream", ContentType.APPLICATION),
+    MOBILE_PROVISIONING_2("mobileprovision", "application/x-apple-aspen-mobileprovision", ContentType.APPLICATION);
 
     private final String extension;
     private final String mimeType;
