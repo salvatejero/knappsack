@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-@Transactional(propagation = Propagation.REQUIRED)
+@Transactional
 @org.springframework.stereotype.Service("applicationVersionService")
 public class ApplicationVersionServiceImpl implements ApplicationVersionService {
 

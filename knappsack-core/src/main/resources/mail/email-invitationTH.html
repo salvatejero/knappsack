@@ -9,7 +9,7 @@
 <div th:include="email-headerTH :: email-header"/>
 
 <p>
-    Hello!
+    Estimado usuario!
 </p>
 
 <p th:if="${not #strings.isEmpty(adminName)} and ${not #sets.contains(domainTypes, 'ORGANIZATION')} and ${#sets.contains(domainTypes, 'GROUP')}" th:utext="#{email.invitation.adminExists.groupsOnly(${adminName}, ${parentDomainName}, ${url})}"/>
@@ -17,7 +17,7 @@
 <p th:if="${#strings.isEmpty(adminName)} and ${not #sets.contains(domainTypes, 'ORGANIZATION')} and ${#sets.contains(domainTypes, 'GROUP')}" th:utext="#{email.invitation.noAdmin.groupsOnly(${parentDomainName}, ${url})}"/>
 <p th:if="${#strings.isEmpty(adminName)} and ${#sets.contains(domainTypes, 'ORGANIZATION')}" th:utext="#{email.invitation.noAdmin.organization(${parentDomainName}, ${url})}"/>
 
-<span th:if="${#bools.isTrue(existingUser)}" th:text="#{email.invitation.noFurtherAction}">No further action is necessary.</span>
+<span th:if="${#bools.isTrue(existingUser)}">Pulse en el link para continuar con el alta.</span>
 <span th:if="${#bools.isFalse(existingUser)}" th:text="#{email.invitation.createAccount}">Please follow the below link to create your Knappsack account.</span>
 
 <p th:if="${not #sets.contains(domainTypes, 'ORGANIZATION')} and ${#sets.contains(domainTypes, 'GROUP')}">

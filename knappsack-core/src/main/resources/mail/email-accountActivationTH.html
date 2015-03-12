@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title th:remove="all">Knappsack user activation notification</title>
+    <title th:remove="all">Marketplace de Knappsack, Notificaci&oacute;n de activaci&oacute;n de cuenta</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
@@ -9,13 +9,13 @@
 <div th:include="email-headerTH :: email-header"/>
 
 <p th:text="#{greeting(${name})}">
-    Hello, Peter Static!
+    Hola, Peter Static!
 </p>
 <p th:text="#{email.accountActivation.org(${organizationName})}" th:if="${not #strings.isEmpty(organizationName)}">
-    Your account was successfully created!  However, it must be activated before you can use it.  Please click the link below to activate your account.
+    ¡Su cuenta ha sido creada correctamente! Sin embargo, esta debe ser activada antes de usarla. Por favor, haga click en el siguiente enlace para activar su cuenta
 </p>
 <p th:text="#{email.accountActivation}" th:if="${#strings.isEmpty(organizationName)}">
-    Your account was successfully created!  However, it must be activated before you can use it.  Please click the link below to activate your account.</p>
+    ¡Su cuenta ha sido creada correctamente! Sin embargo, esta debe ser activada antes de usarla. Por favor, haga click en el siguiente enlace para activar su cuenta.</p>
 <p>
     <a th:href="${url}" th:text="${url}"/>
 </p>

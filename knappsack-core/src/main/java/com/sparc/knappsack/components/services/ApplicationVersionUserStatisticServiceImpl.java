@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-@Transactional(propagation = Propagation.REQUIRED)
+@Transactional
 @Service("applicationVersionUserStatisticService")
 public class ApplicationVersionUserStatisticServiceImpl implements ApplicationVersionUserStatisticService {
 

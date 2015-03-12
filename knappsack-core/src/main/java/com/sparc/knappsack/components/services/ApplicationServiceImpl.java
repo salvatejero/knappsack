@@ -22,7 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.ArrayList;
 import java.util.List;
 
-@Transactional(propagation = Propagation.REQUIRED)
+@Transactional
 @Service("applicationService")
 public class ApplicationServiceImpl implements ApplicationService {
 

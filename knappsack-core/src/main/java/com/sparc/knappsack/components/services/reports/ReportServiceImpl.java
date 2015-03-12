@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
-@Transactional(propagation = Propagation.REQUIRED)
+@Transactional
 @Service("reportService")
 public class ReportServiceImpl implements ReportService {
 

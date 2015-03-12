@@ -12,7 +12,7 @@ import org.springframework.security.openid.OpenIDAttribute;
 import org.springframework.security.openid.OpenIDAuthenticationToken;
 import org.springframework.stereotype.Service;
 
-//@Transactional(propagation = Propagation.REQUIRED)
+//@Transactional
 @Service("userDetailsService")
 public class UserDetailsService implements AuthenticationUserDetailsService<OpenIDAuthenticationToken>, org.springframework.security.core.userdetails.UserDetailsService {
 

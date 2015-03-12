@@ -1,13 +1,12 @@
 package com.sparc.knappsack.components.entities;
 
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.jasypt.util.text.BasicTextEncryptor;
-
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Transient;
+
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.jasypt.util.text.BasicTextEncryptor;
 
 /**
  * S3StorageConfiguration contains the account settings in order to store files in Amazon's S3 storage service.

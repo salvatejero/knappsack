@@ -23,7 +23,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-@Transactional(propagation = Propagation.REQUIRED)
+@Transactional
 @Service("keyVaultEntryService")
 public class KeyVaultEntryServiceImpl implements KeyVaultEntryService {
     private static final Logger log = LoggerFactory.getLogger(KeyVaultEntryServiceImpl.class);

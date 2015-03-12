@@ -20,7 +20,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-@Transactional( propagation = Propagation.REQUIRED )
+@Transactional
 @Service("groupService")
 public class GroupServiceImpl implements GroupService {
 

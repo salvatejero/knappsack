@@ -8,6 +8,7 @@ import com.sparc.knappsack.enums.AppFileType;
 import com.sparc.knappsack.enums.MimeType;
 import com.sparc.knappsack.enums.StorageType;
 import com.sparc.knappsack.forms.StorageForm;
+
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.jets3t.service.*;
 import org.jets3t.service.impl.rest.httpclient.RestS3Service;
@@ -29,6 +30,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.annotation.PostConstruct;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -171,7 +173,8 @@ public class S3StorageService extends AbstractStorageService implements RemoteSt
         return true;
     }
 
-    protected S3StorageConfiguration getStorageConfiguration(Long storageConfigurationId) {
+    @SuppressWarnings("unchecked")
+	protected S3StorageConfiguration getStorageConfiguration(Long storageConfigurationId) {
         return storageConfigurationService.get(storageConfigurationId, S3StorageConfiguration.class);
     }
 

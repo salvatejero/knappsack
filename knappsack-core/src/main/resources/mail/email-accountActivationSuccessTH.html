@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title th:remove="all">Knappsack user activation success</title>
+    <title th:remove="all">Marketplace de Knappsack. El usuario ha sido activado correctamente</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
@@ -9,17 +9,18 @@
 <div th:include="email-headerTH :: email-header"/>
 
 <p th:text="#{greeting(${name})}">
-    Hello, Peter Static!
+    Hola, Peter Static!
 </p>
 <p th:text="#{email.accountActivationSuccess.org(${organizationName})}" th:if="${not #strings.isEmpty(organizationName)}">
-    You have successfully registered to your organization.
+    Ha registrado correctamente tu organizaci&oacute;n.
 </p>
 
 <p th:text="#{email.accountActivationSuccess}" th:if="${#strings.isEmpty(organizationName)}">
-    You have successfully activated your Knappsack account!
+    ¡Ha activado correctamente su cuenta en el Marketplace de Knappsack!
+    
 </p>
 
-<p th:text="#{email.accountActivationSuccess.linkMessage}">Click on the following link to access your applications:</p>
+<p th:text="#{email.accountActivationSuccess.linkMessage}">Haga click en el siguiente enlace para acceder a sus aplicaciones:</p>
 <p>
     <a th:href="${url}" th:text="${url}"/>
 </p>

@@ -7,6 +7,7 @@ import com.sparc.knappsack.components.entities.StorageConfiguration;
 import com.sparc.knappsack.enums.AppFileType;
 import com.sparc.knappsack.enums.StorageType;
 import com.sparc.knappsack.forms.StorageForm;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Scope;
@@ -212,7 +213,8 @@ public class LocalStorageService extends AbstractStorageService implements Stora
         }
     }
 
-    protected LocalStorageConfiguration getStorageConfiguration(Long storageConfigurationId) {
+    @SuppressWarnings("unchecked")
+	protected LocalStorageConfiguration getStorageConfiguration(Long storageConfigurationId) {
         return storageConfigurationService.get(storageConfigurationId, LocalStorageConfiguration.class);
     }
 

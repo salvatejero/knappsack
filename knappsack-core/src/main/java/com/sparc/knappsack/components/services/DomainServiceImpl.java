@@ -15,7 +15,7 @@ import org.springframework.util.StringUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-@Transactional(propagation = Propagation.REQUIRED)
+@Transactional
 @Service("domainService")
 public class DomainServiceImpl implements DomainService {
 

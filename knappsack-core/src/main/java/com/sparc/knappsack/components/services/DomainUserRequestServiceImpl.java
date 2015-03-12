@@ -21,7 +21,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
-@Transactional(propagation = Propagation.REQUIRED)
+@Transactional
 @Service("domainUserRequestService")
 public class DomainUserRequestServiceImpl implements DomainUserRequestService {
 

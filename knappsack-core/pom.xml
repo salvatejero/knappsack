@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.sparc.knappsack</groupId>
+  
     <artifactId>knappsack-core</artifactId>
 
     <properties>
@@ -177,14 +177,6 @@
                     <artifactId>httpclient</artifactId>
                     <groupId>org.apache.httpcomponents</groupId>
                 </exclusion>
-                <exclusion>
-                    <artifactId>jackson-core-asl</artifactId>
-                    <groupId>org.codehaus.jackson</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>jackson-mapper-asl</artifactId>
-                    <groupId>org.codehaus.jackson</groupId>
-                </exclusion>
             </exclusions>
         </dependency>
 
@@ -213,7 +205,6 @@
         <dependency>
             <groupId>cglib</groupId>
             <artifactId>cglib</artifactId>
-            <version>2.2.2</version>
             <scope>runtime</scope>
         </dependency>
 
@@ -296,6 +287,23 @@
             <artifactId>logback-core</artifactId>
         </dependency>
 
+		<dependency>
+  			<groupId>com.dropbox.core</groupId>
+  			<artifactId>dropbox-core-sdk</artifactId>
+  			<version>[1.7,1.8)</version>
+		</dependency>
+
+ 		<dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache-core</artifactId>
+            <version>2.6.9</version>
+        </dependency>
+        <!-- Hibernate EHCache API -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-ehcache</artifactId>
+            <version>${org.hibernate-version}</version>
+        </dependency>
         <dependency>
             <groupId>janino</groupId>
             <artifactId>janino</artifactId>
@@ -521,5 +529,40 @@
                 <version>2.4</version>
             </plugin>
         </plugins>
+        <pluginManagement>
+        	<plugins>
+        		<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+        		<plugin>
+        			<groupId>org.eclipse.m2e</groupId>
+        			<artifactId>lifecycle-mapping</artifactId>
+        			<version>1.0.0</version>
+        			<configuration>
+        				<lifecycleMappingMetadata>
+        					<pluginExecutions>
+        						<pluginExecution>
+        							<pluginExecutionFilter>
+        								<groupId>
+        									com.mysema.maven
+        								</groupId>
+        								<artifactId>
+        									maven-apt-plugin
+        								</artifactId>
+        								<versionRange>
+        									[1.0.4,)
+        								</versionRange>
+        								<goals>
+        									<goal>process</goal>
+        								</goals>
+        							</pluginExecutionFilter>
+        							<action>
+        								<ignore></ignore>
+        							</action>
+        						</pluginExecution>
+        					</pluginExecutions>
+        				</lifecycleMappingMetadata>
+        			</configuration>
+        		</plugin>
+        	</plugins>
+        </pluginManagement>
     </build>
 </project>
