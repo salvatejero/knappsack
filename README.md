@@ -30,6 +30,15 @@ Once Knappsack is deployed, the first user you create is the administrator.  Ple
 
 [Quick Start Guide](https://s3.amazonaws.com/knappsack/KnappsackQuickStartGuide.pdf "Quick Start Guide")
 
+## Adding DropBox Support
+
+You can configure the App to storage files in Dropbox
+
+
+## Bug Fixed
+
+Some bugs fixed
+
 ##Support and Help
 
 Feel free to post issues here on GitHub or our support forum located here:
