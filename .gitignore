@@ -21,3 +21,4 @@ knappsack-integration-tests/dropDDL.jdbc
 /createDDL.jdbc
 /dropDDL.jdbc
 /maintenance/
+/.settings/
